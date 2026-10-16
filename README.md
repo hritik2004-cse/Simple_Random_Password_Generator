@@ -1,24 +1,29 @@
 # 🔐 Random Password Generator
 
-A sleek, lightweight, and modern web application that generates strong, randomized passwords instantly. Built with pure HTML, CSS, and **TypeScript**.
+A sleek, lightweight, and modern web application that generates strong, randomized passwords with customizable options. Built with pure HTML, CSS, and **TypeScript** — no frameworks, no bloat.
 
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![License](https://img.shields.io/badge/license-ISC-blue.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript_7-3178C6?logo=typescript&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
-![pnpm](https://img.shields.io/badge/pnpm-F69220?logo=pnpm&logoColor=white)
+![pnpm](https://img.shields.io/badge/pnpm_12-F69220?logo=pnpm&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?logo=vercel&logoColor=white)
 
 ---
 
 ## ✨ Features
 
-- **⚡ Instant Generation**: Generates two distinct 15-character passwords simultaneously in a single click.
-- **🛡️ Strong Security**: Combines lowercase letters, uppercase letters, numbers, and special symbols for maximum entropy and resistance against brute-force attacks.
-- **🔷 Type-Safe Architecture**: Written entirely in TypeScript with strict null checks and DOM type safety.
-- **📋 One-Click Copy**: Copies your desired password directly to your clipboard using the modern asynchronous Clipboard API.
-- **✅ Visual Feedback**: The copy icon dynamically toggles to a checkmark confirmation when copied.
-- **📱 Fully Responsive**: Fluid, mobile-friendly design optimized for desktops, tablets, and smartphones.
-- **🎨 Dark Mode Aesthetic**: Crafted with a sleek dark palette and high-contrast green accents for an eye-friendly user experience.
+- **🔢 Custom Password Length**: Choose any length between 6 and 20 characters via an input field with real-time validation.
+- **🔀 Flexible Character Sets**: Toggle **numbers** (`0-9`) and **symbols** (`~!@#$%^&*()+=` etc.) on or off independently to tailor password complexity.
+- **⚡ Dual Generation**: Generates **two distinct passwords** simultaneously in a single click for easy comparison and selection.
+- **📋 Click-to-Copy**: Tap or click directly on any password to copy it to your clipboard using the asynchronous Clipboard API — no extra buttons needed.
+- **💬 Copy Feedback**: A tooltip shows "click to copy" on hover, switching to "copied!" after selection, so you always know what's on your clipboard.
+- **ℹ️ Info Tooltip**: A contextual info button reveals usage hints — hover on desktop, tap on mobile — with a styled popover and CSS arrow indicator.
+- **📱 Mobile-Aware Layout**: Detects viewport width at load and adapts the password display layout (row vs. column) based on device type and password length.
+- **🎨 Dark Mode Aesthetic**: Crafted with a premium dark palette (`#1b232f`) and vibrant green accents (`#42dd7c`) using CSS custom properties throughout.
+- **📐 Fully Responsive**: Five CSS breakpoints (480px, 767px, 1023px, 1279px, 1280px+) ensure a polished experience on every screen size.
+- **🔷 Type-Safe Architecture**: Written entirely in TypeScript (strict mode) with `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, and full source maps.
+- **🚀 Vercel Deployed**: Production-ready with a `vercel.json` config for zero-configuration deployments.
 
 ---
 
@@ -27,28 +32,36 @@ A sleek, lightweight, and modern web application that generates strong, randomiz
 > **"Never use an insecure password again."**
 
 ```
-+-------------------------------------------------------+
-|  Generate a                                           |
-|  Random Password                                      |
-|  Never use an insecure password again.                |
-|                                                       |
-|  [ Generate Password ]                                |
-|  ---------------------------------------------------  |
-|  +-----------------------+  +-----------------------+ |
-|  |  [📋] aB7#k9$mQ2!xL5& |  |  [📋] 8p*Z1^vR4@wN9~e | |
-|  +-----------------------+  +-----------------------+ |
-+-------------------------------------------------------+
++----------------------------------------------------------+
+|  [i]                                                      |
+|  Generate a                                               |
+|  Random Password                                          |
+|  Never use an insecure password again.                    |
+|                                                           |
+|  Password length: [8]                                     |
+|  ☐ include Symbols (#,$,%,&)                              |
+|  ☑ include Numbers (1,2,4,5)                              |
+|                                                           |
+|  [ Generate Password ]                                    |
+|  ────────────────────────────────────────                  |
+|  ┌──────────────────┐  ┌──────────────────┐               |
+|  │  aB7k9mQ2         │  │  8pZ1vR4wN9e      │              |
+|  │  (click to copy)  │  │  (click to copy)  │              |
+|  └──────────────────┘  └──────────────────┘               |
++----------------------------------------------------------+
 ```
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Language**: [TypeScript](https://www.typescriptlang.org/) (Strict mode, ESNext target, NodeNext modules)
-- **Markup**: [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML) (ES module script loading)
-- **Styling**: [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS) (CSS Variables, Flexbox, Media Queries)
-- **Icons**: [Font Awesome 6/7](https://fontawesome.com/)
-- **Package Manager**: [pnpm](https://pnpm.io/)
+| Layer | Technology | Details |
+| :--- | :--- | :--- |
+| **Language** | [TypeScript 7](https://www.typescriptlang.org/) | Strict mode, ESNext target, NodeNext modules |
+| **Markup** | [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML) | Semantic elements, ES module script loading |
+| **Styling** | [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS) | Custom properties, Flexbox, 5 responsive breakpoints |
+| **Package Manager** | [pnpm 12](https://pnpm.io/) | Deterministic installs via `packageManager` field |
+| **Deployment** | [Vercel](https://vercel.com/) | Zero-config static deployment |
 
 ---
 
@@ -57,21 +70,28 @@ A sleek, lightweight, and modern web application that generates strong, randomiz
 ```text
 Random Password Generator/
 │
-├── dist/                 # Compiled JavaScript output (generated by tsc)
-│   ├── index.js
-│   ├── index.js.map
-│   ├── index.d.ts
-│   └── index.d.ts.map
+├── src/                              # TypeScript source modules
+│   ├── index.ts                      # Main entry — DOM wiring, validation & generation trigger
+│   ├── generateRandomPassword.ts     # Password generation logic with configurable character pools
+│   ├── copyPassword.ts              # Clipboard API integration & copy feedback UI
+│   ├── checkMobile.ts               # Viewport-based mobile detection
+│   └── info.ts                       # Info tooltip toggle (hover on desktop, click on mobile)
 │
-├── src/                  # TypeScript source files
-│   └── index.ts          # Core logic & DOM event listeners
+├── dist/                             # Compiled JS output (generated by tsc)
+│   ├── index.js / .d.ts / .js.map / .d.ts.map
+│   ├── generateRandomPassword.js / .d.ts / .js.map / .d.ts.map
+│   ├── copyPassword.js / .d.ts / .js.map / .d.ts.map
+│   ├── checkMobile.js / .d.ts / .js.map / .d.ts.map
+│   └── info.js / .d.ts / .js.map / .d.ts.map
 │
-├── index.html            # Application UI markup & Font Awesome icons
-├── style.css             # Dark-mode styling, variables & responsive rules
-├── tsconfig.json         # TypeScript compiler configuration
-├── package.json          # Project metadata & build/watch scripts
-├── pnpm-lock.yaml        # Deterministic dependency lockfile
-└── README.md             # Project documentation
+├── index.html                        # Application UI — loads 5 ES modules from dist/
+├── style.css                         # Dark-mode design system with CSS variables & responsive rules
+├── tsconfig.json                     # TypeScript compiler config (strict, declarations, source maps)
+├── package.json                      # Project metadata & build/watch scripts
+├── pnpm-lock.yaml                    # Deterministic dependency lockfile
+├── vercel.json                       # Vercel deployment configuration
+├── .gitignore                        # Git ignore rules
+└── README.md                         # This file
 ```
 
 ---
@@ -102,12 +122,12 @@ pnpm install
 
 | Command | Description |
 | :--- | :--- |
-| `pnpm build` | Compiles TypeScript code from `src/` to `dist/` |
+| `pnpm build` | Compiles all TypeScript modules from `src/` to `dist/` (with declarations & source maps) |
 | `pnpm watch` | Runs the TypeScript compiler in watch mode (auto-recompiles on save) |
 
-### 3. Running the Application
+### 3. Running Locally
 
-Because `index.html` loads `dist/index.js` as an ES module (`type="module"`), running via a local web server is recommended:
+Because `index.html` loads multiple ES modules from `dist/`, a local web server is required:
 
 - **VS Code Live Server (Recommended)**:
   1. Install the **Live Server** extension by Ritwick Dey in VS Code.
@@ -119,30 +139,69 @@ Because `index.html` loads `dist/index.js` as an ES module (`type="module"`), ru
   ```
   Then open the local URL provided in your browser.
 
+### 4. Deploying to Vercel
+
+The project includes a [`vercel.json`](vercel.json) for seamless deployment:
+```bash
+# Install Vercel CLI
+pnpm dlx vercel
+
+# Deploy
+pnpm dlx vercel --prod
+```
+
 ---
 
 ## 🧠 How It Works
 
-1. **Character Pool**: An extensive array of characters containing:
-   - Lowercase letters (`a-z`)
-   - Uppercase letters (`A-Z`)
-   - Numeric digits (`0-9`)
-   - Special characters (`~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `(`, `)`, `+`, `=`, etc.)
-2. **Type Safety & Bounds Checking**: `generateRandomPassword()` utilizes `Math.random()` to pick characters and validates array indices safely under TypeScript's `noUncheckedIndexedAccess`.
-3. **Clipboard API**: Uses `navigator.clipboard.writeText()` for asynchronous, permission-based copying directly to the system clipboard with instant UI state toggling.
+### Module Architecture
+
+The application is split into **5 focused TypeScript modules**, each compiled as an independent ES module and loaded directly by the browser:
+
+| Module | Responsibility |
+| :--- | :--- |
+| `index.ts` | Orchestrates the UI — handles password length input, validates bounds (6–20), triggers generation, and adapts layout based on device/password length |
+| `generateRandomPassword.ts` | Builds a character pool from letters (a-z, A-Z) + optional numbers + optional symbols, then generates a random password of the requested length |
+| `copyPassword.ts` | Attaches click handlers to password containers, copies text via `navigator.clipboard.writeText()`, and toggles "click to copy" ↔ "copied!" feedback |
+| `checkMobile.ts` | Detects mobile viewports (`< 768px`) on `DOMContentLoaded` and exports a boolean flag used by other modules |
+| `info.ts` | Manages the info tooltip — uses hover events on desktop and click events on mobile (determined by `checkMobile`) |
+
+### Password Generation
+
+1. **Base Character Pool**: Always includes 52 alphabetic characters (`a-z`, `A-Z`).
+2. **Optional Numbers**: When the "include Numbers" checkbox is toggled, digits `0-9` are added to the pool.
+3. **Optional Symbols**: When the "include Symbols" checkbox is toggled, 31 special characters are added (`~:;<>\`!@#$%^&*()+=-/.,?{}[]()`).
+4. **Random Selection**: For each character position, `Math.floor(Math.random() * pool.length)` selects from the combined pool, with TypeScript's `noUncheckedIndexedAccess` ensuring safe array access.
+
+---
+
+## 🎨 Design System
+
+The UI is powered by a CSS custom properties-based design system:
+
+| Variable | Value | Usage |
+| :--- | :--- | :--- |
+| `--btn` | `#12b075` | Primary button background |
+| `--accent` | `#42dd7c` | Headings, password text, checkboxes |
+| `--bg-accent` | `#222e40` | Input fields, password containers, info panel |
+| `--fg-accent` | `#7e8490` | Secondary text, labels, borders |
+| `--background` | `#1b232f` | Main container background |
+| `--foreground` | `#ffffff` | Primary text color |
+
+Custom-styled checkboxes with animated check marks, hover transitions on buttons, and tooltip popovers with CSS arrows complete the premium dark-mode experience.
 
 ---
 
 ## 🔮 Future Enhancements
 
-- [ ] Custom password length slider (e.g., 8–32 characters)
-- [ ] Toggle filters (exclude numbers, symbols, or ambiguous characters like `l`, `1`, `O`, `0`)
-- [ ] Password strength indicator (Weak / Moderate / Strong)
 - [ ] Cryptographically secure randomness using `window.crypto.getRandomValues()`
+- [ ] Password strength indicator (Weak / Moderate / Strong)
 - [ ] Password generation history / save option
+- [ ] Toggle to exclude ambiguous characters (`l`, `1`, `O`, `0`)
+- [ ] Range slider alternative for password length input
 
 ---
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is open source and available under the [ISC License](LICENSE).
