@@ -2,6 +2,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 :root {
@@ -399,8 +400,8 @@ hr {
     margin-bottom: 0px;
   }
   .password {
-  font-size: 14px;
-}
+    font-size: 14px;
+  }
 }
 
 @media screen and (min-width: 481px) and (max-width: 767px) {
