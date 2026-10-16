@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Random Password Generator</title>
     <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
-    />
   </head>
   <body>
     <div class="outer-container">
       <div class="info-div">
         <button id="info">i</button>
         <ul id="info-desc">
-          <li class="info-desc-li">Password length must between 10 to 30 characters.</li>
-          <li class="info-desc-li">You can choose that you want numbers and symbols.</li>
+          <li class="info-desc-li">
+            Password length must between 6 to 20 characters.
+          </li>
+          <li class="info-desc-li">
+            You can choose that you want numbers and symbols.
+          </li>
+          <li class="info-desc-li">Just click to copy your password.</li>
         </ul>
       </div>
       <h1>Generate a <br /><span class="green-col">Random Password</span></h1>
@@ -24,10 +25,21 @@
       <div class="options-div">
         <div class="input-div">
           <label for="passLength">Password length: </label>
-          <input type="text" name="passLength" id="passLength" placeholder="0">
+          <input
+            type="text"
+            name="passLength"
+            id="passLength"
+            placeholder="0"
+            value="6"
+          />
         </div>
-        <div class="toggle-main-div">
-
+        <div class="toggle-div">
+          <input type="checkbox" name="includeSymbol" id="includeSymbol" />
+          <label for="includeSymbol">include Symbols (#,$,%,&)</label>
+        </div>
+        <div class="toggle-div">
+          <input type="checkbox" name="includeNumber" id="includeNumber" />
+          <label for="includeNumber">include Numbers (1,2,4,5)</label>
         </div>
       </div>
       <button id="generatePassBtn">Generate Password</button>
@@ -35,17 +47,29 @@
       <div id="pass-main-div" class="none">
         <hr />
         <div class="inner-container">
-          <div class="password-div">
-            <i class="fa-regular fa-copy copy" id="pass1copy"></i>
-            <p class="password" id="pass1"></p>
+          <div class="pass-main-div">
+            <span class="copyMsg" id="copyMsg1" data-copy="1">
+              click to copy
+            </span>
+            <div class="password-div" data-password="1">
+              <p class="password" id="pass1" data-pass="1"></p>
+            </div>
           </div>
-          <div class="password-div">
-            <i class="fa-regular fa-copy copy" id="pass2copy"></i>
-            <p class="password" id="pass2"></p>
+          <div class="pass-main-div">
+            <span class="copyMsg" id="copyMsg2" data-copy="2">
+              click to copy
+            </span>
+            <div class="password-div" data-password="2">
+              <p class="password" id="pass2" data-pass="2"></p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </body>
+  <script type="module" src="dist/checkMobile.js"></script>
   <script type="module" src="dist/index.js"></script>
+  <script type="module" src="dist/info.js"></script>
+  <script type="module" src="dist/copyPassword.js"></script>
+  <script type="module" src="dist/generateRandomPassword.js"></script>
 </html>

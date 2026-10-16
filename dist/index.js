@@ -1,144 +1,18 @@
-const characters = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z",
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "0",
-    "~",
-    ":",
-    ";",
-    "<",
-    ">",
-    "`",
-    "!",
-    "@",
-    "#",
-    "$",
-    "%",
-    "^",
-    "&",
-    "*",
-    "(",
-    ")",
-    "+",
-    "=",
-    "_",
-    "-",
-    "/",
-    ".",
-    ",",
-    "?",
-    "{",
-    "}",
-    "[",
-    "]",
-    "(",
-    ")",
-];
-/*
-next targets :-
-- Ability to set password length.
-- add copy on click
-- toggle for numbers and symbols on/off
-*/
+import isMobile from "./checkMobile.js";
+import generateRandomPassword from "./generateRandomPassword.js";
+let passLength = 6;
 // HTML DOM elements
-const infoBtn = document.getElementById("info");
-const pass1Copy = document.getElementById("pass1copy");
-const pass2Copy = document.getElementById("pass2copy");
 const pass1 = document.getElementById("pass1");
 const pass2 = document.getElementById("pass2");
+const copyMsg1 = document.getElementById("copyMsg1");
+const copyMsg2 = document.getElementById("copyMsg2");
 const errorMsg = document.getElementById("error");
-const infoBtnDesc = document.getElementById("info-desc");
 const passMainDiv = document.getElementById("pass-main-div");
 const passLengthEl = document.getElementById("passLength");
 const innerContainer = document.querySelector(".inner-container");
 const generatePassBtn = document.getElementById("generatePassBtn");
-let passLength = 0;
-let hasNumber = false;
-let hasSymbol = false;
-let isInfoDescOpen = false;
-// function to generate random password
-function generateRandomPassword(length) {
-    let password = "";
-    for (let i = 0; i < length; i++) {
-        const randomIndex = Math.floor(Math.random() * characters.length);
-        const passChar = characters[randomIndex];
-        if (passChar) {
-            password += passChar;
-        }
-    }
-    return password;
-}
 passLengthEl.addEventListener("input", () => {
     passLength = Number(passLengthEl.value);
-});
-// event listner for infoBtn to display infoBtnDesc
-infoBtn.addEventListener("click", () => {
-    if (isInfoDescOpen === false) {
-        infoBtnDesc.style.display = "inline";
-        isInfoDescOpen = true;
-    }
-    else {
-        infoBtnDesc.style.display = "none";
-        isInfoDescOpen = false;
-    }
 });
 generatePassBtn.addEventListener("click", () => {
     if (!Number.isNaN(passLength)) {
@@ -147,22 +21,21 @@ generatePassBtn.addEventListener("click", () => {
             errorMsg.style.display = "block";
         }
         else if (passLength >= 6 && passLength <= 20) {
+            errorMsg.style.display = "none";
+            copyMsg1.textContent = "click to copy";
+            copyMsg2.textContent = "click to copy";
             const firstPass = generateRandomPassword(passLength);
             const secondPass = generateRandomPassword(passLength);
             passMainDiv.style.display = "block";
             pass1.textContent = firstPass;
             pass2.textContent = secondPass;
-            if (passLength <= 12) {
-                innerContainer.style.flexDirection = "row";
-            }
-            else {
-                innerContainer.style.flexDirection = "column";
-            }
-            errorMsg.style.display = "none";
-            pass1Copy.classList.add("fa-copy", "fa-regular");
-            pass1Copy.classList.remove("fa-check", "fa-solid");
-            pass2Copy.classList.add("fa-copy", "fa-regular");
-            pass2Copy.classList.remove("fa-check", "fa-solid");
+            isMobile
+                ? passLength <= 12
+                    ? (innerContainer.style.flexDirection = "row")
+                    : (innerContainer.style.flexDirection = "column")
+                : passLength <= 15
+                    ? (innerContainer.style.flexDirection = "row")
+                    : (innerContainer.style.flexDirection = "column");
         }
         else {
             errorMsg.textContent = "Password length must be between 6 and 20.";
@@ -174,33 +47,4 @@ generatePassBtn.addEventListener("click", () => {
         errorMsg.style.display = "block";
     }
 });
-pass1Copy.addEventListener("click", async () => {
-    try {
-        if (pass1.textContent) {
-            await navigator.clipboard.writeText(pass1.textContent);
-            pass1Copy.classList.remove("fa-copy", "fa-regular");
-            pass1Copy.classList.add("fa-check", "fa-solid");
-        }
-    }
-    catch (error) {
-        if (error instanceof Error) {
-            console.error("Unable to copy password", error);
-            alert("Unable to copy password");
-        }
-    }
-});
-pass2Copy.addEventListener("click", async () => {
-    try {
-        if (pass2.textContent) {
-            await navigator.clipboard.writeText(pass2.textContent);
-            pass2Copy.classList.remove("fa-copy", "fa-regular");
-            pass2Copy.classList.add("fa-check", "fa-solid");
-        }
-    }
-    catch (error) {
-        console.error("Unable to copy password", error);
-        alert("Unable to copy password");
-    }
-});
-export {};
 //# sourceMappingURL=index.js.map
