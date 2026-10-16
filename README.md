@@ -29,27 +29,7 @@ A sleek, lightweight, and modern web application that generates strong, randomiz
 
 ## 🖥️ Preview
 
-> **"Never use an insecure password again."**
-
-```
-+----------------------------------------------------------+
-|  [i]                                                      |
-|  Generate a                                               |
-|  Random Password                                          |
-|  Never use an insecure password again.                    |
-|                                                           |
-|  Password length: [8]                                     |
-|  ☐ include Symbols (#,$,%,&)                              |
-|  ☑ include Numbers (1,2,4,5)                              |
-|                                                           |
-|  [ Generate Password ]                                    |
-|  ────────────────────────────────────────                  |
-|  ┌──────────────────┐  ┌──────────────────┐               |
-|  │  aB7k9mQ2         │  │  8pZ1vR4wN9e      │              |
-|  │  (click to copy)  │  │  (click to copy)  │              |
-|  └──────────────────┘  └──────────────────┘               |
-+----------------------------------------------------------+
-```
+![Preview](https://raw.githubusercontent.com/hritik2004-cse/Simple_Random_Password_Generator/refs/heads/main/src/assets/preview.png)
 
 ---
 
